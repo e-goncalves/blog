@@ -1,11 +1,26 @@
 <html>
     <head>
-        <title>Contatos</title>
+        <title>Meu Blog</title>
     </head>
     <body>
-        <a href="https://www.oceanbrasil.com">Isso é um link</a>
-        <h1>Edson Serrão Gonçalves</h1>
-        <h2>edson@email.com</h2>
-        <h3>92 99123-4567</h3>
+        <h1>Meu Blog</h1>
+
+        {% for post in posts %}
+            <article class="post">
+                <header>
+                    <div>
+                        <h1>{{ post.title }}</h1>
+                        <div class="about">
+                            by {{ post.author }} 
+                            on {{ post.created.strftime('%d/%m/%Y') }}</div>
+                    </div>
+                </header>
+                <p class="body"> {{ post.body }}</p>
+            </article>
+            {% if not loop.last %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+
     </body>
 </html>
