@@ -62,7 +62,7 @@ def register():
             db.session.add(new_user)
             db.session.commit()
         except IntegrityError:
-            flash("Username or E-mail alread exists!")
+            flash("Username or E-mail alread exists!!!")
         else:
             return redirect(url_for('login'))
     return render_template('register.html')
